@@ -1,12 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://www.maxim.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1400/MTUwODg5MTM1MDY0NzU0MDA5/cocktails-promo.webp');">
-  <div class="container">
-    <h1> 🍹 All cocktail 🍹 </h1>
+<div class="container">
+  <h1 class='mt-4'>Cocktails</h1>
+  <div class="cocktail-index row">
     <% @cocktails.each do |cocktail| %>
-      <li class='text-white'><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="cocktail-card">
+          <%= cl_image_tag cocktail.photo.key, class: "card-img-top rounded-lg", height: 300, width: 300, crop: :fill %>
+          <div class="card-body">
+            <h1><%= link_to cocktail.name, cocktail_path(cocktail)%></h1>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
-<div class="btn btn-primary btn-lg d-flex justify-content-center m-5 ">
-  <%= link_to "Add a new cocktail here", new_cocktail_path, :class => 'btn' %>
 </div>
 
