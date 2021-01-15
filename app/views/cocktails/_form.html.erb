@@ -1,5 +1,11 @@
-<%= simple_form_for(@cocktail) do |f| %>
-<%= f.input :name %>
-<%= f.input :ingredient %>
-<%= f.submit "add cocktail" class='btn btn-primary' %>
-<% end %>
+<div class="form">
+
+    <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <div class="d-flex justify-content-center">
+
+        <%= f.button :submit, "update", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

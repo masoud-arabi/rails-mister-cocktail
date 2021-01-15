@@ -18,32 +18,35 @@
                         </ul>
                     </div>
                     <div class="button">
-                        <%= link_to "Add new doses", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
+                        <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
                     </div>
                 </div>
 
                 <br><br><br><br>
                 <div class="description">
                     <h2>Description</h2>
-                    <p>descriptiondescriptiondescriptiondescriptiondescription</p>
+                    <p><%= @cocktail.description %></p>
+                    <%= link_to  "Edit description", edit_cocktail_path(@cocktail),  class: 'btn btn-primary'%>
                 </div>
             </div>
         </div>
 
         <div class="review">
             <% if @cocktail.reviews.empty? %>
-            <p> There is no review, Dyou want to add a new one?</p>
+            <p> There is no review, Do you want to add a new one?</p>
             <% else %>
-            <div class="list">
+            <div class="list list-review">
                 <ul>
                     <% @cocktail.reviews.each do |review| %>
-                    <li id="star"> <%= '⭐️' * review.rating%> </li>
-                    <li> <%= review.content%></li>
+                    <div class="review-list">
+                        <li id="star"> <%= '⭐️' * review.rating%> </li>
+                        <li> <i class="fas fa-search"></i> <%= review.content%></li>
+                    </div>
                     <% end %>
                 </ul>
                 <% end %>
             </div>
-            <%= link_to "Add new review", new_cocktail_review_path(@cocktail) %>
+            <%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: 'btn btn-primary' %>
         </div>
         <%
 =begin%>
