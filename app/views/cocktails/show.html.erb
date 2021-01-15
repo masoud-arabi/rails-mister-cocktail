@@ -1,11 +1,54 @@
 <div class="container">
-  <h1><%= @cocktail.name %> </h1>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-  <ul>
-    <% @cocktail.doses.each do |dose| %>
-    <li> <%= dose.description%> <%= dose.ingredient.name%> <%= link_to "delete this dose", dose_path(dose), method: :delete %></li>
-    <% end %>
-  </ul>
-  <%= link_to "Add new doses", new_cocktail_dose_path(@cocktail) %>
-  </div>
+    <div class="show-cocktail">
+        <h1><%= @cocktail.name %> </h1>
+
+        <div class="row">
+            <div class="image col-lg-4 col-sm-6">
+                <%= cl_image_tag @cocktail.photo.key, height: 300, width: 300, crop: :fill %>
+            </div>
+            <div class="col-lg-8 col-sm-6">
+                <div class="dose">
+                    <h2>Ingredient</h2>
+                    <div class="dose-list">
+                        <ul>
+                            <% @cocktail.doses.each do |dose| %>
+                            <li> <%= dose.description%> <%= dose.ingredient.name%> <%= link_to "delete this dose", dose_path(dose), method: :delete, class: 'btn btn-primary' %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <div class="button">
+                        <%= link_to "Add new doses", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p>descriptiondescriptiondescriptiondescriptiondescription</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="review">
+            <% if @cocktail.reviews.empty? %>
+            <p> There is no review, Dyou want to add a new one?</p>
+            <% else %>
+            <div class="review-list">
+                <ul>
+                    <% @cocktail.reviews.each do |review| %>
+                    <li> <%= review.content%> <%= review.rating%> </li>
+                    <% end %>
+                </ul>
+                <% end %>
+            </div>
+            <%= link_to "Add new review", new_cocktail_review_path(@cocktail) %>
+        </div>
+        <%
+=begin%>
+        <%= render "reviews/new" %>
+
+
+
+        <button type="button" onclick="document.getElementById('review-form').style.display='block'; this.style.visibility='hidden';" , class="btn btn-primary my-2">Add a review</button>
+        <%
+=end%>
+    </div>
 </div>
