@@ -6,7 +6,22 @@
   justify-content: center;
 }
 
-.dose-list ul {
+.list ul {
   list-style: none;
   padding: 0;
+}
+.dose-desc {
+  padding-left: 2px;
+}
+.show-cocktail h1 {
+  text-align: left;
+}
+.description {
+  margin-top: 30px;
+}
+.review {
+  margin-top: 22px;
+}
+#star {
+  font-size: 22px;
 }
