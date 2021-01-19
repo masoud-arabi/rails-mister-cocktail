@@ -1,6 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
-.container h1{
+.container h1 {
   color: black;
 }
 
@@ -10,10 +10,9 @@
   grid-gap: 16px;
 }
 
-
- .card-category{
-width:50%;
- }
+.card-category {
+  width: 50%;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

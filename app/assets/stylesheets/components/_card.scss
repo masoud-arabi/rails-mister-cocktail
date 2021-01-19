@@ -1,0 +1,27 @@
+.card-body {
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    color: #343a40;
+  }
+}
+
+.cocktail-card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 18rem;
+  padding: 1.25rem;
+  margin: 24px;
+}
+
+.card-body h3 {
+  color: black;
+}
+.card-body_star p {
+  margin-left: 60px;
+}
+.x {
+  border: 1px sloid black;
+}

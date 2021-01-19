@@ -1,9 +1,12 @@
-<div class="container">
-    <div class="form">
+<div class="container" id="dose-form">
+    <h2 class="text-center"> base on your taste you can add your favorite ingredient and if you like you write description for that.</h2>
+    <div class="form justify-content-center">
         <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, collection: Ingredient.all  %>
         <%= f.input :description %>
-        <%= f.association :ingredient %>
-        <%= f.submit %>
+        <div class="d-flex justify-content-center">
+            <%=  f.button :submit, "Submit", class: "btn btn-primary rounded"%>
+        </div>
         <% end %>
     </div>
 </div>

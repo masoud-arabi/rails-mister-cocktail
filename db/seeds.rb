@@ -18,8 +18,8 @@ ingredients['drinks'].each do |ingredient|
   puts "Added #{ingredient['strIngredient1']}"
 end
 
-10.times.Cocktail.create! do
-  ({ name: Faker::FunnyName.name })
-end
+# 10.times.Cocktail.create! do
+#   ({ name: Faker::FunnyName.name })
+# end
 
 puts 'Done!'
