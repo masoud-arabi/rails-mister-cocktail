@@ -1,15 +1,18 @@
-<div class="container">
-    <div class="edit-form">
-        <h2><%= @cocktail.name %></h2>
-        <div class="image-edit">
-            <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-        </div>
-        <div class="form mt-4">
-            <%= simple_form_for(@cocktail) do |f| %>
-            <%= f.input :description, label: "Please edit your description", label_html: { class: "label-desc" } %>
-            <div class="d-flex justify-content-center">
-                <%= f.button :submit, "update", class: "btn btn-primary" %>
-                <% end %>
+<%= render "shared/header" %>
+<div class="back-ground-image height-form">
+    <div class="container">
+        <div class="edit-form">
+            <h2 class="header-title"><%= @cocktail.name %></h2>
+            <div class="image-edit">
+                <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+            </div>
+            <div class="form mt-4">
+                <%= simple_form_for(@cocktail) do |f| %>
+                <%= f.input :description, label: "Please edit your description", label_html: { class: "label-desc" } %>
+                <div class="d-flex justify-content-center">
+                    <%= f.button :submit, "update", class: "btn btn-primary" %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

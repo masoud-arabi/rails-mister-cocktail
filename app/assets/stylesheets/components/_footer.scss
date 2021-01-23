@@ -2,7 +2,7 @@
   clear: both; //prevents floating elements from right/left of footer
   z-index: 1; //z-index positions elements in front or behind eachother, most have a //natual z-index of -1
   width: 100%;
-  position: fixed;
+  position: relative;
   bottom: 0;
   right: 0;
   background: #1c1560;
@@ -10,7 +10,7 @@
   padding: 10px 0;
   p {
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
     margin: 0;
   }
 }
@@ -23,11 +23,13 @@
 }
 
 .legal-footer {
-  font-size: 10px;
+  p {
+    font-size: 0.1rem;
+  }
 }
 
-#envelope-footer {
-  font-size: medium;
+#envelope-footer a {
+  font-size: 0.5rem;
   color: white;
   margin-right: 10px;
 }
@@ -37,14 +39,14 @@
   a {
     color: white;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 0.5rem;
   }
 }
 
 .social-footer {
   a {
     color: white;
-    font-size: 24px;
+    font-size: 1rem;
     margin-left: 10px;
     margin-right: 10px;
   }

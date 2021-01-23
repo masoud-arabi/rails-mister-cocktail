@@ -1,12 +1,16 @@
-<div class="container">
-    <h2 class="text-center"> if you had a good experiace with this cocktail please write a review and rate it.</h2>
-    <div class="form">
-        <%= simple_form_for [@cocktail, @review] do |f| %>
-        <%= f.input :rating, type: 'select', collection: [1, 2, 3, 4, 5]  %>
-        <%= f.input :content %>
-        <div class="d-flex justify-content-center">
-            <%=  f.button :submit, "Submit", class: "btn btn-primary rounded"%>
+<div class="back-ground-image">
+    <div class="back-ground-image height-form">
+        <div class="container">
+            <h2 class="text-center header-title"> if you had a good experiace with this cocktail please write a review and rate it.</h2>
+            <div class="form">
+                <%= simple_form_for [@cocktail, @review] do |f| %>
+                <%= f.input :rating, type: 'select', collection: [1, 2, 3, 4, 5]  %>
+                <%= f.input :content %>
+                <div class="d-flex justify-content-center">
+                    <%=  f.button :submit, "Submit", class: "btn btn-primary rounded"%>
+                </div>
+                <% end %>
+            </div>
         </div>
-        <% end %>
     </div>
 </div>

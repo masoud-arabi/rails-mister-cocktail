@@ -1,61 +1,66 @@
-<div class="container">
-    <div class="show-cocktail">
-        <h1><%= @cocktail.name %> </h1>
+<%= render "shared/header" %>
+<div class="back-ground-image">
+    <div class="container">
+        <div class="show-cocktail">
+            <h1><%= @cocktail.name %> </h1>
 
-        <div class="row">
-            <div class="image-show col-lg-5 col-sm-6">
-                <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-            </div>
-            <div class="dose-desc col-lg-7 col-sm-6">
-                <div class="dose">
-                    <h2>Ingredient</h2>
-                    <div class="list">
-                        <ul>
-                            <% @cocktail.doses.each do |dose| %>
-                            <i class="fas fa-cocktail"></i>
-                            <i> <%= dose.description%> <%= dose.ingredient.name%> <%= link_to "", dose_path(dose), method: :delete, class: 'fas fa-trash-alt' %></li>
+            <div class="row">
+                <div class="image-show col-lg-5 col-sm-6">
+                    <%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
+                </div>
+                <div class="dose-desc col-lg-7 col-sm-6">
+                    <div class="dose">
+                        <h3>Ingredient</h3>
+                        <div class="list">
+                            <ul>
+                                <% @cocktail.doses.each do |dose| %>
+                                <li><i class="fas fa-cocktail"> </i>
+                                    <strong>Does: </strong> <em><%= dose.ingredient.name%></em> <strong> Description:</strong> <em><%= dose.description%></em> <%= link_to "", dose_path(dose), method: :delete, class: 'fas fa-trash-alt' %>
+                                </li>
                                 <% end %>
-                        </ul>
+                            </ul>
+                        </div>
+                        <div class="button">
+                            <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
+                        </div>
                     </div>
-                    <div class="button">
-                        <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
-                    </div>
-                </div>
 
-                <br><br><br><br>
-                <div class="description">
-                    <h2>Description</h2>
-                    <p><%= @cocktail.description %></p>
-                    <%= link_to  "Edit description", edit_cocktail_path(@cocktail),  class: 'btn btn-primary'%>
+                    <br><br><br><br>
+                    <div class="description">
+                        <h3>Description</h3>
+                        <p><%= @cocktail.description %></p>
+                        <%= link_to  "Edit description", edit_cocktail_path(@cocktail),  class: 'btn btn-primary'%>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="review">
-            <% if @cocktail.reviews.empty? %>
-            <p> There is no review, Do you want to add a new one?</p>
-            <% else %>
-            <div class="list list-review">
-                <ul>
-                    <% @cocktail.reviews.each do |review| %>
-                    <div class="review-list">
-                        <li id="star"> <%= '⭐️' * review.rating%> </li>
-                        <li> <i class="fas fa-search"></i> <%= review.content%></li>
-                    </div>
+            <div class="review">
+                <h3>Reviews</h3>
+                <% if @cocktail.reviews.empty? %>
+                <p> There is no review, Do you want to add a new one?</p>
+                <% else %>
+                <div class="list list-review">
+                    <ul>
+                        <% @cocktail.reviews.each do |review| %>
+                        <div class="review-list">
+                            <li id="star"> <%= ' ⭐️ ' * review.rating%><%= '☆'* (5 - review.rating.to_i)  %> </li>
+                            <li> <i class="fas fa-search"></i> <%= review.content%></li>
+                        </div>
+                        <% end %>
+                    </ul>
                     <% end %>
-                </ul>
-                <% end %>
+                </div>
+                <%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: 'btn btn-primary' %>
             </div>
-            <%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: 'btn btn-primary' %>
-        </div>
-        <%
+            <%
 =begin%>
-        <%= render "reviews/new" %>
+            <%= render "reviews/new" %>
 
 
 
-        <button type="button" onclick="document.getElementById('review-form').style.display='block'; this.style.visibility='hidden';" , class="btn btn-primary my-2">Add a review</button>
-        <%
+            <button type="button" onclick="document.getElementById('review-form').style.display='block'; this.style.visibility='hidden';" , class="btn btn-primary my-2">Add a review</button>
+            <%
 =end%>
+        </div>
     </div>
 </div>

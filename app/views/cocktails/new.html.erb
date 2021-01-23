@@ -1,16 +1,19 @@
-<div class="container">
-    <div class="form">
-        <h2 class="text-center"> Add a New Cocktail </h2>
-        <div class="from-inputs">
-            <%= simple_form_for (@cocktail) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :description %>
-            <%= f.input :photo, as: :file %>
-            <div class="d-flex justify-content-center">
-                <%= f.button :submit , "Submit", class: "btn btn-primary"%>
+<%= render "shared/header" %>
+<div class="back-ground-image height-form">
+    <div class="container">
+        <div class="form">
+            <h2 class="text-center header-title"> Add a New Cocktail </h2>
+            <div class="from-inputs">
+                <%= simple_form_for (@cocktail) do |f| %>
+                <%= f.input :name %>
+                <%= f.input :description %>
+                <%= f.input :photo, as: :file %>
+                <div class="d-flex justify-content-center">
+                    <%= f.button :submit , "Submit", class: "btn btn-primary"%>
+                </div>
             </div>
-        </div>
 
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>

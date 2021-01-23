@@ -1,6 +1,6 @@
 .navbar {
   justify-content: space-between;
-  background: #1c1560;
+  background: $purpele;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,14 +12,31 @@
 }
 
 .navbar-brand {
-  border: solid white 1px;
+  border: solid$black 1px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $black;
   border-radius: 2px;
   padding: 10px;
+  &:hover {
+    color: $light-gray;
+    border: solid $light-gray 1px;
+  }
 }
 
-.navbar .btn {
-  border: solid white 1px;
+.add-cocktail {
+  border: solid $black 1px;
+  font-weight: bold;
   border-radius: 2px;
   padding: 10px;
-  color: white;
+  color: $black;
+  &:hover {
+    color: $light-gray;
+    border: solid $light-gray 1px;
+    background-color: none;
+    text-decoration: none;
+  }
+}
+.pstar {
+  color-adjust: percentage($number: 20);
 }

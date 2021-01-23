@@ -1,42 +1,38 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/originals/b9/4d/4f/b94d4f336d6cdbbc9332bd15027fd3bc.jpg);">
+<%= render "shared/header" %>
+<div class="back-ground-image">
     <div class="container">
-        <h1>Cocktails CoCo</h1>
-        <p>Change your life </p>
-        <a class="btn btn-flat" href="#">Click Here</a>
-    </div>
-</div>
-<div class="container">
-    <h1 class='mt-4'>Cocktails</h1>
-    <div class="cocktail-index row">
-
-        <% @cocktails.each do |cocktail| %>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="cocktail-card">
-                <div class="image">
-                    <%= cl_image_tag cocktail.photo.key, class: "card-img-top rounded-lg", height: 300, width: 300, crop: :fill%>
-                </div>
-                <div class="card-body row  space-between">
-                    <div class="card-body_text col">
-                        <h3><%= link_to cocktail.name, cocktail_path(cocktail)%></h3>
+        <h1 class='text-center pt-4'>Cocktails</h1>
+        <div class="cocktail-index row">
+            <% @cocktails.each do |cocktail| %>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="cocktail-card">
+                    <div class="image">
+                        <%= cl_image_tag cocktail.photo.key, class: "card-img-top rounded-lg", height: 300, width: 300, crop: :fill%>
                     </div>
-                    <div class="card-body_star  col">
-                        <% sum = 0 %>
-                        <% i = 0 %>
-                        <% cocktail.reviews.each_with_index do |review, index| %>
-                        <% sum += review.rating %>
-                        <% i += 1 %>
-                        <% end %>
-                        <% if i == 0 %>
-                        <p>No Rated</p>
-                        <% else %>
-                        <p><%= '⭐️' * (sum / i) %></p>
-                        <% end %>
+                    <div class="card-body row  space-between">
+                        <div class="card-body_text col">
+                            <h3><%= link_to cocktail.name, cocktail_path(cocktail)%></h3>
+                        </div>
+                        <div class="card-body_star  col">
+                            <% sum = 0 %>
+                            <% i = 0 %>
+                            <% cocktail.reviews.each_with_index do |review, index| %>
+                            <% sum += review.rating %>
+                            <% i += 1 %>
+                            <% end %>
+                            <% if i == 0 %>
+                            <p>No Rated</p>
+                            <% else %>
+                            <p class="pstar"><%= "⭐" * (sum / i) %><%= '☆'* (5 - (sum/i)) %></p>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <% end %>
-        <div style="height: 70px;">
-            <%= render 'shared/footer' %>
+            <% end %>
+            <div style="height: 70px;">
+            </div>
         </div>
     </div>
+</div>
+<%= render 'shared/footer' %>
